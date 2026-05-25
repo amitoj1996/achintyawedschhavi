@@ -12,9 +12,9 @@
     --gold: #FFD700;
     --gold-warm: #F5A623;
     --marigold: #FF9933;
-    --pink-light: #FFE4EC;
-    --cream: #FFF8F0;
-    --cream-warm: #FFF3E6;
+    --pink-light: #F3EFE8;
+    --cream: #FDFBF7;
+    --cream-warm: #F8F5EF;
     --text-dark: #3D1A1A;
     --text-muted: #7A4A4A;
     --text-light: #A67070;
@@ -221,7 +221,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #FFF8F0 0%, #FFF3E6 50%, #FFE4EC 100%);
+    background: linear-gradient(135deg, #FDFBF7 0%, #FAF8F3 50%, #F3EFE8 100%);
     z-index: 0;
 }
 
@@ -353,7 +353,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #FFF3E6 0%, #FFE4EC 100%);
+    background: linear-gradient(135deg, #FAF8F3 0%, #F3EFE8 100%);
     z-index: 0;
 }
 
@@ -678,7 +678,7 @@ body {
     right: 0;
     bottom: 0;
     background:
-        linear-gradient(135deg, rgba(255, 243, 230, 0.78) 0%, rgba(255, 228, 236, 0.78) 50%, rgba(255, 248, 240, 0.78) 100%),
+        linear-gradient(135deg, rgba(250, 248, 243, 0.78) 0%, rgba(243, 239, 232, 0.78) 50%, rgba(253, 251, 247, 0.78) 100%),
         url('Images/Royal.png') center/cover no-repeat;
     z-index: 0;
 }
