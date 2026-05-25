@@ -449,17 +449,6 @@
         <span>Swipe to turn page</span>
     </div>
 
-    <!-- Background music -->
-    <audio id="bgMusic" src="audio/wedding-song.mp3" loop autoplay preload="auto"></audio>
-
-    <!-- Floating music toggle (visible on all pages) -->
-    <button class="music-toggle" id="musicToggle" aria-label="Toggle music" type="button">
-        <span class="music-icon-note">♪</span>
-        <span class="music-icon-bars" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-        </span>
-    </button>
-
     <!-- Book Container -->
     <div class="book" id="book">
 
@@ -894,48 +883,6 @@
             }
         }
         decorateContainer(document.getElementById('fireworksContainer1'));
-
-        // ===== Background Music =====
-        var bgMusic = document.getElementById('bgMusic');
-        var musicStarted = false;
-
-        function syncMusicUI(playing) {
-            var toggle = document.getElementById('musicToggle');
-            var cta = document.getElementById('musicCTA');
-            var ctaIcon = document.getElementById('musicCTAIcon');
-            var ctaText = document.getElementById('musicCTAText');
-            if (playing) {
-                toggle.classList.add('playing');
-                if (cta) cta.classList.add('playing');
-                if (ctaIcon) ctaIcon.textContent = '⏸';
-                if (ctaText) ctaText.textContent = 'Pause Music';
-            } else {
-                toggle.classList.remove('playing');
-                if (cta) cta.classList.remove('playing');
-                if (ctaIcon) ctaIcon.textContent = '▶';
-                if (ctaText) ctaText.textContent = musicStarted ? 'Resume Music' : 'Play Music';
-            }
-        }
-
-        function toggleMusic() {
-            if (bgMusic.paused) {
-                bgMusic.play().then(function () {
-                    musicStarted = true;
-                }).catch(function () {});
-            } else {
-                bgMusic.pause();
-            }
-        }
-
-        bgMusic.addEventListener('play', function () { syncMusicUI(true); });
-        bgMusic.addEventListener('pause', function () { syncMusicUI(false); });
-
-        document.getElementById('musicToggle').addEventListener('click', toggleMusic);
-        var musicCTABtn = document.getElementById('musicCTA');
-        if (musicCTABtn) musicCTABtn.addEventListener('click', toggleMusic);
-
-        // Try to autoplay (carried over from Open Invitation click)
-        bgMusic.play().then(function () { musicStarted = true; }).catch(function () { /* blocked; user can tap toggle */ });
     </script>
 </body>
 </html>

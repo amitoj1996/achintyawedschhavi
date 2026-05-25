@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chhavi (Mini) & Achintya - Wedding Invitation</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
         * {
             margin: 0;
@@ -266,6 +267,24 @@
             pointer-events: all;
         }
 
+        /* Iframe overlay for invitation flipbook */
+        .invitation-frame {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            z-index: 50;
+            display: none;
+            background: #3D1A1A;
+        }
+        .invitation-frame.active { display: block; }
+        .entry-content.hidden { display: none; }
+
+        /* Music toggle: hidden until the user taps Open Invitation */
+        .music-toggle { display: none; }
+        .music-toggle.visible { display: flex; }
+
         /* Responsive */
         @media (max-width: 600px) {
             .entry-content {
@@ -365,7 +384,21 @@
 
     <div class="page-transition" id="transition"></div>
 
-    <div class="entry-content">
+    <!-- Background music (owned by the landing so playback starts on the tap) -->
+    <audio id="bgMusic" src="audio/wedding-song.mp3" loop preload="auto"></audio>
+
+    <!-- Floating music toggle, shown after Open Invitation -->
+    <button class="music-toggle" id="musicToggle" aria-label="Toggle music" type="button">
+        <span class="music-icon-note">♪</span>
+        <span class="music-icon-bars" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+        </span>
+    </button>
+
+    <!-- Invitation flipbook loads in here on tap -->
+    <iframe id="invitationFrame" class="invitation-frame" title="Wedding Invitation"></iframe>
+
+    <div class="entry-content" id="entryContent">
         <img src="Images/Jain%20Symbol.png" alt="Jain Emblem" class="emblem-img">
 
         <p class="auspicious-symbol">|| श्री महावीराय नमः ||</p>
@@ -408,13 +441,36 @@
         }
         createPetals();
 
+        var bgMusic = document.getElementById('bgMusic');
+        var musicToggle = document.getElementById('musicToggle');
+        var invitationFrame = document.getElementById('invitationFrame');
+        var entryContent = document.getElementById('entryContent');
+
         document.getElementById('enterBtn').addEventListener('click', function () {
+            // Start music inside the user gesture (works on iOS Safari)
+            bgMusic.play().catch(function () { /* user can use the toggle */ });
+
             var transition = document.getElementById('transition');
             transition.classList.add('active');
+
+            // Preload the iframe behind the fade
+            invitationFrame.src = 'invitation-bride.html';
+
             setTimeout(function () {
-                window.location.href = 'invitation-bride.html';
+                entryContent.classList.add('hidden');
+                invitationFrame.classList.add('active');
+                musicToggle.classList.add('visible');
+                transition.classList.remove('active');
             }, 600);
         });
+
+        function toggleMusic() {
+            if (bgMusic.paused) bgMusic.play().catch(function () {});
+            else bgMusic.pause();
+        }
+        musicToggle.addEventListener('click', toggleMusic);
+        bgMusic.addEventListener('play',  function () { musicToggle.classList.add('playing'); });
+        bgMusic.addEventListener('pause', function () { musicToggle.classList.remove('playing'); });
     </script>
 </body>
 </html>
