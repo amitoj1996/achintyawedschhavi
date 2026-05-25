@@ -38,6 +38,15 @@ body {
     font-family: 'Great Vibes', cursive;
 }
 
+/* Enlarge the first capital letter of script-styled names */
+.hero-names .name-word::first-letter,
+.footer-names .name-word::first-letter,
+.couple-names h1::first-letter,
+.person-name::first-letter {
+    font-size: 1.45em;
+    line-height: 0.9;
+}
+
 .devanagari {
     font-family: 'Cormorant Garamond', 'Noto Serif Devanagari', serif;
 }
@@ -127,7 +136,7 @@ body {
     bottom: 0;
     background:
         radial-gradient(ellipse at top, rgba(146, 38, 63, 0.72) 0%, rgba(123, 31, 52, 0.78) 45%, rgba(92, 14, 36, 0.88) 100%),
-        url('Images/ac2.jpeg') center/cover no-repeat;
+        url('Images/ac5.jpeg') center/cover no-repeat;
     z-index: 0;
 }
 
