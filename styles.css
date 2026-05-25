@@ -38,13 +38,17 @@ body {
     font-family: 'Great Vibes', cursive;
 }
 
-/* Enlarge the first capital letter of script-styled names */
+/* Use a serif capital for the first letter so it reads as a clear capital */
 .hero-names .name-word::first-letter,
 .footer-names .name-word::first-letter,
 .couple-names h1::first-letter,
 .person-name::first-letter {
-    font-size: 1.45em;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.15em;
     line-height: 0.9;
+    margin-right: 0.04em;
 }
 
 .devanagari {
