@@ -39,6 +39,11 @@ body {
 }
 
 /* Use a serif capital for the first letter so it reads as a clear capital */
+.hero-names .name-word,
+.footer-names .name-word {
+    display: inline-block;
+}
+
 .hero-names .name-word::first-letter,
 .footer-names .name-word::first-letter,
 .couple-names h1::first-letter,
@@ -834,9 +839,8 @@ body {
 /* ===== Music Toggle (floating, all flipbook pages) ===== */
 .music-toggle {
     position: fixed;
-    top: 50%;
+    bottom: 22px;
     right: 22px;
-    transform: translateY(-50%);
     width: 56px;
     height: 56px;
     border-radius: 50%;
@@ -861,7 +865,7 @@ body {
 }
 
 .music-toggle:hover {
-    transform: translateY(-50%) scale(1.08);
+    transform: scale(1.08);
     background: var(--gold);
     color: var(--crimson-dark);
 }
@@ -1014,7 +1018,7 @@ body {
 }
 
 @media (max-width: 600px) {
-    .music-toggle { width: 48px; height: 48px; right: 14px; }
+    .music-toggle { width: 48px; height: 48px; right: 14px; bottom: 14px; }
     .music-icon-note { font-size: 1.25rem; }
     .music-icon-bars { height: 15px; }
     .music-icon-bars span { width: 2.5px; }
