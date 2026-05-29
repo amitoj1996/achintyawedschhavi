@@ -523,6 +523,14 @@ body {
 .fw-burst:nth-child(6) { bottom: 15%; right: 10%; color: #FF6B6B; animation-delay: 0.8s; }
 .fw-burst:nth-child(7) { bottom: 10%; left: 10%; color: #FF9933; animation-delay: 1.8s; }
 .fw-burst:nth-child(8) { bottom: 8%; left: 60%; color: #FF69B4; animation-delay: 2.3s; }
+.fw-burst:nth-child(9)  { top: 25%; left: 25%;  color: #FFC107; animation-delay: 1.2s; }
+.fw-burst:nth-child(10) { top: 30%; right: 15%; color: #FF4500; animation-delay: 2.6s; }
+.fw-burst:nth-child(11) { top: 45%; left: 8%;   color: #FF69B4; animation-delay: 0.3s; }
+.fw-burst:nth-child(12) { top: 50%; right: 8%;  color: #FFD700; animation-delay: 1.7s; }
+.fw-burst:nth-child(13) { bottom: 25%; left: 30%;  color: #FF9933; animation-delay: 2.1s; }
+.fw-burst:nth-child(14) { bottom: 22%; right: 28%; color: #FF6B6B; animation-delay: 0.6s; }
+.fw-burst:nth-child(15) { top: 18%; left: 45%;     color: #FF4500; animation-delay: 3s; }
+.fw-burst:nth-child(16) { bottom: 30%; right: 45%; color: #FFC107; animation-delay: 1.1s; }
 
 .confetti {
     position: absolute;
@@ -550,6 +558,24 @@ body {
 @keyframes sparkle {
     0%, 100% { opacity: 0; transform: scale(0); }
     50% { opacity: 0.7; transform: scale(1); }
+}
+
+/* Floating flowers drifting down across the celebration pages */
+.event-flower {
+    position: absolute;
+    top: -30px;
+    pointer-events: none;
+    opacity: 0;
+    animation: eventFlowerFall linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+}
+
+@keyframes eventFlowerFall {
+    0%   { transform: translateY(-30px) rotate(0deg) translateX(0); opacity: 0; }
+    10%  { opacity: 0.85; }
+    50%  { transform: translateY(45vh) rotate(180deg) translateX(24px); }
+    90%  { opacity: 0.55; }
+    100% { transform: translateY(105vh) rotate(360deg) translateX(-18px); opacity: 0; }
 }
 
 .events-section > .fade-in {
@@ -747,6 +773,24 @@ body {
 .venue-map-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(160, 21, 62, 0.4);
+}
+
+/* Compact venue card used inline within the June 17 events timeline */
+.venue-card--inline {
+    max-width: 420px;
+    margin-top: 18px;
+    padding: 22px 30px;
+}
+
+.venue-card--inline .venue-name { font-size: 2.2rem; margin-bottom: 8px; }
+.venue-card--inline .venue-address { font-size: 1.05rem; margin-bottom: 16px; }
+.venue-card--inline .venue-map-link { padding: 10px 24px; font-size: 0.72rem; }
+
+@media (max-width: 480px) {
+    .venue-card--inline { padding: 16px 20px; margin-top: 12px; }
+    .venue-card--inline .venue-name { font-size: 1.7rem; }
+    .venue-card--inline .venue-address { font-size: 0.92rem; margin-bottom: 12px; }
+    .venue-card--inline .venue-map-link { padding: 9px 20px; font-size: 0.66rem; }
 }
 
 /* ===== Footer Section ===== */

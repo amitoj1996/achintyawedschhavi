@@ -570,6 +570,14 @@
                     <div class="fw-burst"></div>
                     <div class="fw-burst"></div>
                     <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
+                    <div class="fw-burst"></div>
                 </div>
                 <div class="fade-in">
                     <h2 class="section-heading">Wedding Celebrations</h2>
@@ -852,13 +860,14 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Confetti & Sparkles for both Events pages
+        // Confetti, Sparkles & Flowers for the Events page
         var confettiColors = ['#FFD700', '#FF6B6B', '#FF9933', '#FF69B4', '#A0153E', '#FF4500', '#FFC107'];
         var confettiShapes = ['■', '●', '▲', '✦', '★', '✿'];
+        var flowerEmojis = ['🌸', '🌺', '🌼', '🌷', '🏵️', '💐', '🪷'];
 
         function decorateContainer(container) {
             if (!container) return;
-            for (var i = 0; i < 25; i++) {
+            for (var i = 0; i < 45; i++) {
                 var c = document.createElement('div');
                 c.className = 'confetti';
                 c.textContent = confettiShapes[Math.floor(Math.random() * confettiShapes.length)];
@@ -869,7 +878,7 @@
                 c.style.animationDelay = (Math.random() * 10) + 's';
                 container.appendChild(c);
             }
-            for (var j = 0; j < 15; j++) {
+            for (var j = 0; j < 28; j++) {
                 var s = document.createElement('div');
                 s.className = 'celebration-sparkle';
                 s.style.left = Math.random() * 100 + '%';
@@ -880,6 +889,16 @@
                 s.style.animationDuration = (1.5 + Math.random() * 2) + 's';
                 s.style.animationDelay = (Math.random() * 3) + 's';
                 container.appendChild(s);
+            }
+            for (var k = 0; k < 16; k++) {
+                var f = document.createElement('div');
+                f.className = 'event-flower';
+                f.textContent = flowerEmojis[Math.floor(Math.random() * flowerEmojis.length)];
+                f.style.left = Math.random() * 100 + '%';
+                f.style.fontSize = (14 + Math.random() * 16) + 'px';
+                f.style.animationDuration = (9 + Math.random() * 9) + 's';
+                f.style.animationDelay = (Math.random() * 12) + 's';
+                container.appendChild(f);
             }
         }
         decorateContainer(document.getElementById('fireworksContainer1'));
